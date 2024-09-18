@@ -14,8 +14,20 @@
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 		<style>
                     body {
-                    background: url( 'https://blog.appoptics.com/wp-content/uploads/2018/08/AO-Blog-Images-3000x2000-Troubleshoot-Kubernetes.jpg' );
+        		background: url('https://blog.appoptics.com/wp-content/uploads/2018/08/AO-Blog-Images-3000x2000-Troubleshoot-Kubernetes.jpg');
+			background-size: cover;
+	                /* the following are for firefox 70 */
+	                opacity: 1;
+	                z-index: 1;
                     }
+		@media print {
+	        	.backgrounds {
+				background: url('https://blog.appoptics.com/wp-content/uploads/2018/08/AO-Blog-Images-3000x2000-Troubleshoot-Kubernetes.jpg');
+				/* if you used "cover" on screen,
+				 * you will probably want "contains" on print */
+				background-size: contain;
+	}
+}
                 </style>
 	</head>
 	<body>
