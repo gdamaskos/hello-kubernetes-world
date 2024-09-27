@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-kubernetes-custom
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-kubernetes-custom
+  template:
+    metadata:
+      labels:
+        app: hello-kubernetes-custom
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: paulbouwer/hello-kubernetes:1.8
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MESSAGE
+          value: I just deployed this on Kubernetes!
+# use a configmap to set an env variable envFrom:- configMapRef: name: postgres-config
+# add service ands route (oc expose deployment hello-kubernetes-custom  oc expose service hello-kubernetes-custom)
+# source https://github.com/cloudogu/hello-k8s
+# share the link everyone can run it from their phones
