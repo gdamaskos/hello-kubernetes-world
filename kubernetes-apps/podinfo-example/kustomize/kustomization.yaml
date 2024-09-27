@@ -1,8 +1,0 @@
-## Podinfo Sample Application Kustomization
-
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-# Podinfo resources (services, deployments, etc)
-resources:
-  - github.com/stefanprodan/podinfo/kustomize # online directory
