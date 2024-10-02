@@ -119,10 +119,10 @@
 						<h2>Control Plane</h2>
 						<font size="5">
 							<p>
-								<strong>kube-apiserver:</strong> user interaction with the cluster (kubectl	with ~/.kube/config)
-								<br><strong>etcd:</strong> key-value store for cluster configuration (state, parameters, secrets) 
+								<strong>kube-apiserver:</strong> allows user interaction with the cluster (kubectl)
+								<br><strong>etcd:</strong> stores key-value pairs for cluster configuration (state, parameters, secrets) 
 								<br><strong>kube-scheduler:</strong> decides which node a <span style="color: aqua;">pod</span> will run on
-								<br><strong>kube-controller-manager:</strong> shift the current state of the cluster to the desired state (acts as cluster thermostat)
+								<br><strong>kube-controller-manager:</strong> shifts the actual state of the cluster to the desired state (acts as cluster thermostat)
 							</p>
 							<p style="text-align: center;">
 								<img style="float: left" width="50%" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*Y7m1GPJ7fSNtrSgFOAMe3Q.png">
@@ -146,9 +146,30 @@
 					</section>
 				</section>
 				<section>
-					<h2>Basic Objects</h2>
-					Pods are one of the most fundamental building blocks within Kubernetes. They are the smallest deployable object. 
-    Fun fact, the name Pod comes from the collective for whales. It alludes to the containers inside it, which predominantly ran with dockerd (Docker logo is a whale).
+					<section>
+						<h2>Basic Objects</h2>
+						<font size="5">
+							<p style="text-align: center;">
+								<br><br><strong>Pod:</strong> the smallest computational unit, plugs&plays container(s), <u>ephemeral</u> in nature
+								<br><a>*</a><br><strong>Deployment:</strong> manages the lifecycle of identical pods by scaling, updating, self-healing
+								<br><a>*</a><br><strong>ConfigMap/Secret:</strong> holds data as key-value pairs, passwords and keys kept secret
+								<br><a>*</a><br><strong>Service:</strong> provides a <u>stable</u> IP address and DNS name for reaching a deployment
+							</p>
+							<br><br><br><br>
+						</font>
+					</section>
+					<section>
+						<h2>More Objects</h2>
+						<font size="5">
+							<p>
+								<strong>StatefulSet:</strong> ephemeral the smallest computational unit in Kubernetes, a place to plug&play container(s)
+								<br><strong>Persistent Volume (PV):</strong> replicas (pod copies) scaling grouping updates self healing
+								<br><strong>Persistent VolumeClaim (PVC):</strong> the smallest c
+								<br><strong>Namespace:</strong> grouping of k8s objects
+							</p>
+						</font>
+						<font size="3">even more on: <a href="https://kodekloud.com/blog/kubernetes-objects/">https://kodekloud.com/blog/kubernetes-objects/</a></font>
+					</section>
 				</section>
 				<section>
 					<h2>Examples</h2>
