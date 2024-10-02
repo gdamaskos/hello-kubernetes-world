@@ -38,7 +38,7 @@
 						<li>Cluster components</li>
 						<li>Basic objects</li>
 						<li>Minikube</li>
-						<li>Examples: Hello World, Snake, Bonus</li>
+						<li>Examples: Hello World, Snake, Bonus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 						<li>Recap and next steps</li><br><br><br>
 					</ul>
 				</section>
@@ -82,7 +82,7 @@
 								<li style="margin: 0 0 0 1em;">Open Source</li>
 								<li>Distributed</li>
 								<li>Extensible</li>
-								<li>Declaretive</li>
+								<li>Declarative</li>
 								<li>Resilient</li>
 							</ul>
 							<img height="auto" width="45%" style="display: block-inline; white-space: nowrap;" src="https://tudip.com/wp-content/uploads/2020/10/Managing_Deployments_using_Kubernetes_Engine_01.png">
@@ -94,17 +94,56 @@
 						<h3>What is Kubernetes??&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
 						<font size="5">
 							<br>Kubernetes is the "linux kernel" of distributed systems.
-							<br>It abstracts away the underlying hardware of the nodes and provides a uniform interface for applications to be both deployed and consume the shared pool of resources.
-							<br>features and featuring badges OPEN SOURCE
+							<br><a>*</a><br>It abstracts away the underlying <strong>infrastructure</strong> and provides a uniform interface for applications to be both deployed and consume the shared pool of resources.
+							<br><a>*</a><br>Kubernetes can run in <strong>nodes</strong>: on cloud, on premises and even a combination.
 						</font><br>
-						<br><br><br><br><br>
+						<br><br><br>
 					</section>
 				</section>
 				<section>
-					<h2>Cluster components</h2>
-					Kubernetes will take care of the shared infrastructure for your containers. 
-    For a very high-level view think of a k8s cluster as composed of control plane nodes and worker nodes. For high availability, the control plane runs on multiple nodes.
-    A control plane is the brain of the cluster and it will manage the worker nodes accordingly
+					<section>
+						<h2>Cluster Components</h2>
+						<font size="5">
+							<p>
+								<strong>Node:</strong> a physical or virtual machine that contributes resources
+								<br><strong>Cluster:</strong> a group of <del>master</del> control plane and <del>worker</del> data plane nodes
+							</p>
+							<p style="text-align: center;">
+								<img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*Y7m1GPJ7fSNtrSgFOAMe3Q.png">
+								<br>
+								<font size="3">image: <a href="https://faun.pub/kubernetes-chronicles-k8s-01-introduction-to-kubernetes-architecture-18cad51d270f">https://faun.pub/kubernetes-chronicles-k8s-01-introduction-to-kubernetes-architecture-18cad51d270f</a></font>
+							</p>
+						</font>
+					</section>
+					<section>
+						<h2>Control Plane</h2>
+						<font size="5">
+							<p>
+								<strong>kube-apiserver:</strong> user interaction with the cluster (kubectl	with ~/.kube/config)
+								<br><strong>etcd:</strong> key-value store for cluster configuration (state, parameters, secrets) 
+								<br><strong>kube-scheduler:</strong> decides which node a <span style="color: aqua;">pod</span> will run on
+								<br><strong>kube-controller-manager:</strong> shift the current state of the cluster to the desired state (acts as cluster thermostat)
+							</p>
+							<p style="text-align: center;">
+								<img style="float: left" width="50%" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*Y7m1GPJ7fSNtrSgFOAMe3Q.png">
+								<span style="float: right; text-align: center;"> <br><br><br><br>For high availability, <br>the control plane runs on multiple nodes.</span>
+							</p>
+						</font>
+					</section>					
+					<section>
+						<h2>Data Plane</h2>
+						<font size="5">
+							<p>
+								<strong>kubelet:</strong> agent that ensures that containers are running, reports to the apiserver
+								<br><strong>kube-proxy:</strong> facilitates networking between pods and handles external traffic
+								<br><strong>container runtime:</strong> (ie. Docker) pulls and runs container images from a registry
+							</p>
+							<p style="text-align: center;">
+								<img width="60%" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*Y7m1GPJ7fSNtrSgFOAMe3Q.png">
+								<br>
+							</p>
+						</font>
+					</section>
 				</section>
 				<section>
 					<h2>Basic Objects</h2>
@@ -113,12 +152,14 @@
 				</section>
 				<section>
 					<h2>Examples</h2>
+					k9s htop watch learning curve conceptual level rather than commands
+					minikube command teacher
 					<font size="4">basic tutorials: <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">https://kubernetes.io/docs/concepts/overview/</a></font>
 				</section>
 				<section>
 					<h2>Next steps</h2>
 					Storage/Volumes, rbacs, ingress, networking, ArgoCD, RH Openshift, Secret Management, Plugins, Autoscaling, Helm/Kust
-					https://www.cncf.io/phippy/the-childrens-illustrated-guide-to-kubernetes/
+					another perspective kid but also app pov volumes https://www.cncf.io/phippy/the-childrens-illustrated-guide-to-kubernetes/
 					<font size="4">basic tutorials: <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">https://kubernetes.io/docs/concepts/overview/</a></font>
 				</section>
 			</div>
