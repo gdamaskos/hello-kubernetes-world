@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="dist/theme/night.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="plugin/highlight/zenburn.css">
 		<style type="text/css">
 			p { text-align: left; }
 			li {margin: 0 0 0 1em;}
@@ -23,7 +23,7 @@
 				<section data-background-image="https://blog.appoptics.com/wp-content/uploads/2018/08/AO-Blog-Images-3000x2000-Troubleshoot-Kubernetes.jpg"
 				data-background-size="contain">
 					<h1>Hello Kubernetes World</h1>
-					<h4>from <a href="https://cdh.uu.nl/">Center for Digital Humanities</a></h4>
+					<h4>from <a href="https://cdh.uu.nl/">Centre for Digital Humanities</a></h4>
 					<font size="4">
 						online presentation:
 						<a href="https://gdamaskos.github.io/hello-kubernetes-world/">https://gdamaskos.github.io/hello-kubernetes-world/</a>
@@ -119,7 +119,7 @@
 						<h2>Control Plane</h2>
 						<font size="5">
 							<p>
-								<strong>kube-apiserver:</strong> allows user interaction with the cluster (kubectl)
+								<strong>kube-apiserver:</strong> allows user interaction with the cluster (kubectl ~/.kube/config)
 								<br><strong>etcd:</strong> stores key-value pairs for cluster configuration (state, parameters, secrets) 
 								<br><strong>kube-scheduler:</strong> decides which node a <span style="color: aqua;">pod</span> will run on
 								<br><strong>kube-controller-manager:</strong> shifts the actual state of the cluster to the desired state (acts as cluster thermostat)
@@ -166,17 +166,42 @@
 								<br><a>*</a><br><strong>Persistent Volume (PV):</strong>  represents a piece of storage that can be attached to pods
 								<br><a>*</a><br><strong>Persistent VolumeClaim (PVC):</strong> requests PV resources with specific characteristics
 								<br><a>*</a><br><strong>Namespace:</strong> groups and isolates kubernetes objects in seperate spaces
+								<br><br><br><br><br><strong>Labels:</strong> nametags kubernetes objects; useful to select, identify, inform
 							</p>
 						</font>
-						<br><br><br>
+						<br>
 						<font size="3">even more on: <a href="https://kodekloud.com/blog/kubernetes-objects/">https://kodekloud.com/blog/kubernetes-objects/</a></font>
 					</section>
 				</section>
 				<section>
+					<h2>Minikube</h2>
+					<pre><code data-trim data-noescape>
+						brew install minikube
+						minikube start
+						minikube dashboard
+						minikube config set memory 4096
+						docker ps # 🤯
+						kubectl
+						k9s
+					</code></pre>
+					<font size="4">tutorial: <a href="https://www.digitalocean.com/community/tutorials/how-to-use-minikube-for-local-kubernetes-development-and-testing">how-to-use-minikube-for-local-kubernetes-development-and-testing@digitalocean</a></font>
+				</section>
+				<section>
 					<h2>Examples</h2>
-					k9s htop watch learning curve conceptual level rather than commands
-					minikube command teacher
-					<font size="4">basic tutorials: <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">https://kubernetes.io/docs/concepts/overview/</a></font>
+	        <a href="https://github.com/gdamaskos/hello-kubernetes-world/tree/github-pages/kubernetes-examples/hello-k8s-message">Hello World</a>
+					<pre><code data-trim data-noescape>
+						brew install minikube
+						minikube start
+						minikube dashboard
+						minikube config set memory 4096
+						docker ps # 🤯
+						kubectl
+						k9s
+						minikube service hello-world --url
+						kubectl run minicurl --image=curlimages/curl -i --tty -- sh
+						minikube delete
+					</code></pre>
+					<font size="4">tutorial: <a href="https://www.digitalocean.com/community/tutorials/how-to-use-minikube-for-local-kubernetes-development-and-testing">how-to-use-minikube-for-local-kubernetes-development-and-testing@digitalocean</a></font>
 				</section>
 				<section>
 					<h2>Next steps</h2>
