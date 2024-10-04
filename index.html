@@ -39,7 +39,7 @@
 						<li>Basic objects</li>
 						<li>Minikube</li>
 						<li>Examples: Hello World, Snake, Bonus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-						<li>Recap and next steps</li><br><br><br>
+						<li>Next steps</li><br><br><br>
 					</ul>
 				</section>
 				<section data-background-image="https://blog.appoptics.com/wp-content/uploads/2018/08/AO-Blog-Images-3000x2000-Troubleshoot-Kubernetes.jpg"
@@ -79,14 +79,14 @@
 							<p>Kubernetes is a distributed <u>container orchestration platform</u><br> for automating deployment and management of applications at scale.
 								<ul style="float: left; display: block-inline">
 									<br><br>Kubernetes is also:
-								<li style="margin: 0 0 0 1em;">Open Source</li>
-								<li>Distributed</li>
-								<li>Extensible</li>
-								<li>Declarative</li>
-								<li>Resilient</li>
-							</ul>
-							<img height="auto" width="45%" style="display: block-inline; white-space: nowrap;" src="https://tudip.com/wp-content/uploads/2020/10/Managing_Deployments_using_Kubernetes_Engine_01.png">
-						</p>
+									<li>Open Source</li>
+									<li>Distributed</li>
+									<li>Extensible</li>
+									<li>Declarative</li>
+									<li>Resilient</li>
+								</ul>
+								<img height="auto" width="45%" style="display: block-inline; white-space: nowrap;" src="https://tudip.com/wp-content/uploads/2020/10/Managing_Deployments_using_Kubernetes_Engine_01.png">
+							</p>
 						</font>
 						<font size="3">image: <a href="https://tudip.com/blog-post/managing-deployments-using-kubernetes-engine/">https://tudip.com/blog-post/managing-deployments-using-kubernetes-engine/</a></font>
 					</section>
@@ -119,7 +119,7 @@
 						<h2>Control Plane</h2>
 						<font size="5">
 							<p>
-								<strong>kube-apiserver:</strong> allows user interaction with the cluster (kubectl ~/.kube/config)
+								<strong>kube-apiserver:</strong> allows user interaction with the cluster (CLI/UI)
 								<br><strong>etcd:</strong> stores key-value pairs for cluster configuration (state, parameters, secrets) 
 								<br><strong>kube-scheduler:</strong> decides which node a <span style="color: aqua;">pod</span> will run on
 								<br><strong>kube-controller-manager:</strong> shifts the actual state of the cluster to the desired state (acts as cluster thermostat)
@@ -181,9 +181,10 @@
 						minikube dashboard
 						docker ps # 🤯
 						minikube config set memory 4096
-						kubectl get # check: watch kubectl get all
+						kubectl get # watch kubectl get all 
 						k9s
 					</code></pre>
+					an important file: ~/.kube/config
 					<br><br>
 					<font size="4">tutorial: <a href="https://www.digitalocean.com/community/tutorials/how-to-use-minikube-for-local-kubernetes-development-and-testing">how-to-use-minikube-for-local-kubernetes-development-and-testing@digitalocean</a></font>
 					<br><font size="4">kubectl: <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/</a></font>
@@ -198,15 +199,29 @@
 						minikube service hello-world --url
 						minikube delete # 💥
 					</code></pre>
+					Bonus
 					<br><br>
 					<font size="4">example1: <a href="https://github.com/gdamaskos/hello-kubernetes-world/blob/github-pages/kubernetes-examples/hello-k8s-message/hello-k8s-message.yaml">hello-k8s-message.yaml</a></font>
 					| <font size="4">example2: <a href="https://github.com/gdamaskos/hello-kubernetes-world/blob/github-pages/kubernetes-examples/kubesnake/kubesnake.yaml">kubesnake.yaml</a></font>
 				</section>
 				<section>
 					<h2>Next steps</h2>
-					Storage/Volumes, rbacs, ingress, networking, ArgoCD, RH Openshift, Secret Management, Plugins, Autoscaling, Helm/Kust
-					another perspective kid but also app pov volumes https://www.cncf.io/phippy/the-childrens-illustrated-guide-to-kubernetes/
-					<font size="4">basic tutorials: <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">https://kubernetes.io/docs/concepts/overview/</a></font>
+					<font size="5">
+						<p>
+							<ul style="float: left; display: block-inline">
+								<br><br>
+								<li>Networking ie. Ingress with load balancer</li>
+								<li>Autoscaling ie. Horizontal Pod Autoscaler</li>
+								<li>RBAC - Role Based Access Control</li>
+								<li>RedHat Openshift ITS <br> ie. Rootless Containers, Routes, Storage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+								<li>Helm & Kustomize package managers</li>
+								<li>ArgoCD for automatic deployments</li>
+								<li>Plugins ie. for backup, monitoring, metrics</li>
+							</ul>
+							<img height="auto" width="45%" style="display: block-inline; white-space: nowrap;" src="https://www.cncf.io/wp-content/uploads/2020/07/kubernetes-illustrated-guide-illustration-5.jpg">
+						</p>
+					</font>
+					<br><br><font size="3">image: <a href="https://www.cncf.io/phippy/the-childrens-illustrated-guide-to-kubernetes/">https://www.cncf.io/phippy/the-childrens-illustrated-guide-to-kubernetes/</a></font>
 				</section>
 			</div>
 		</div>
