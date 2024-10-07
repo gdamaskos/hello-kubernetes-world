@@ -36,28 +36,13 @@ kind: Service
 metadata:
   name: hello-kubernetes-custom-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: hello-kubernetes-custom
   ports:
   - port: 8080
     protocol: TCP
     targetPort: 8080
----
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
-  name: hello-kubernetes-custom-route
-spec:
-  tls:
-    insecureEdgeTerminationPolicy: Redirect
-    termination: edge
-  to:
-    kind: Service
-    name: hello-kubernetes-custom-service
-    weight: 100
-  wildcardPolicy: None
-
 
 # source https://github.com/cloudogu/hello-k8s
 
