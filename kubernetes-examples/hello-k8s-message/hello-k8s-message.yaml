@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-kubernetes-custom
+  name: hello-kubernetes-custom-deployment
 spec:
   replicas: 3
   selector:
@@ -17,10 +17,47 @@ spec:
         image: paulbouwer/hello-kubernetes:1.8
         ports:
         - containerPort: 8080
-        env:
-        - name: MESSAGE
-          value: I just deployed this on Kubernetes!
-# use a configmap to set an env variable envFrom:- configMapRef: name: postgres-config
-# add service ands route (oc expose deployment hello-kubernetes-custom  oc expose service hello-kubernetes-custom)
+        envFrom:
+        - configMapRef:
+            name: hello-kubernetes-custom-configmap
+#        env:
+#       - name: MESSAGE
+#        value: I just deployed this on Kubernetes!
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-kubernetes-custom-configmap
+data:
+  MESSAGE: "The MESSAGE from configmap!"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-kubernetes-custom-service
+spec:
+  type: ClusterIP
+  selector:
+    app: hello-kubernetes-custom
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: hello-kubernetes-custom-route
+spec:
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: hello-kubernetes-custom-service
+    weight: 100
+  wildcardPolicy: None
+
+
 # source https://github.com/cloudogu/hello-k8s
-# share the link everyone can run it from their phones
+
