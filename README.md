@@ -15,6 +15,3 @@ Basic HTML and Git knowledge is required.
 References:
 - https://revealjs.com/installation/#basic-setup .  
 - https://stackoverflow.com/questions/31163633/how-to-host-a-reveal-js-presentation/
-
-Tip:
-- PDF extraction is possible from within the broswer PDF printer
