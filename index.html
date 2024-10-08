@@ -196,7 +196,7 @@
 						kubectl run minicurl --image=curlimages/curl -i --tty -- sh
 						kubectl apply -f hello-k8s-message.yaml # or through dashboard
 						kubectl apply -f kubesnake.yaml # or through dashboard
-						minikube service hello-world --url
+						minikube ip # or minikube service <name> --url
 						minikube delete # 💥
 					</code></pre>
 					Bonus
